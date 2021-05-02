@@ -1,9 +1,9 @@
-from sklearn.feature_extraction.text import TfidfVectorizer
-from spacy.lang.en import English
-import numpy as np
-import spacy
-from spacy.lang.en.stop_words import STOP_WORDS
-from string import punctuation
+#from sklearn.feature_extraction.text import TfidfVectorizer
+#from spacy.lang.en import English
+#import numpy as np
+#import spacy
+#from spacy.lang.en.stop_words import STOP_WORDS
+#from string import punctuation
 from flask import Flask, render_template, request
 
 print("working")
