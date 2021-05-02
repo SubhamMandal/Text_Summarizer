@@ -1,4 +1,3 @@
-spacy
 string
 blis==0.7.4
 catalogue==2.0.4
