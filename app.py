@@ -12,7 +12,10 @@ app.static_folder = 'static'
 def getSummary(text):
 	punctuation = r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
 	stopwords= list(STOP_WORDS)
-	import en_core_web_sm
+	try:
+		import en_core_web_sm
+	except:
+		return "couldn't import"
 	nlp = en_core_web_sm.load()
 	doc=nlp(text)
 	tokens=[token.text for token in doc]
