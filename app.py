@@ -55,7 +55,7 @@ def hello():
 @app.route('/', methods = ['POST'])
 def display():
 	text = request.form['passage']
-	#summary = getSummary(text)
+	summary = getSummary(text)
 	summary = "working"
 	return render_template("summary_page.html", summary= summary)
 
