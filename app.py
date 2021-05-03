@@ -11,23 +11,32 @@ app.static_folder = 'static'
 
 def getSummary(text):
 	try:
-		punctuation = r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
-		stopwords= list(STOP_WORDS)
+		try:
+			punctuation = r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
+			stopwords= list(STOP_WORDS)
+		except:
+			return "problem in punctuation"
 		try:
 			import en_core_web_sm
 		except:
 			return "couldn't import"
-		nlp = en_core_web_sm.load()
+		try:
+			nlp = en_core_web_sm.load()
+		except:
+			return "problem in npl"
 		doc=nlp(text)
-		tokens=[token.text for token in doc]
-		word_frequencies={}
-		for word in doc:
-			if word.text.lower() not in stopwords:
-				if word.text.lower() not in punctuation:
-					if word.text not in word_frequencies.keys():
-						word_frequencies[word.text]=1
-					else:
-						word_frequencies[word.text]+=1
+		try:
+			tokens=[token.text for token in doc]
+			word_frequencies={}
+			for word in doc:
+				if word.text.lower() not in stopwords:
+					if word.text.lower() not in punctuation:
+						if word.text not in word_frequencies.keys():
+							word_frequencies[word.text]=1
+						else:
+							word_frequencies[word.text]+=1
+		except:
+			return "problem in algo"
 	except:
 		return "problem in first half"
 
