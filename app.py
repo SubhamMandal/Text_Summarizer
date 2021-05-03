@@ -1,9 +1,9 @@
-#from sklearn.feature_extraction.text import TfidfVectorizer
-#from spacy.lang.en import English
-#import numpy as np
-#import spacy
-#from spacy.lang.en.stop_words import STOP_WORDS
-#from string import punctuation
+from sklearn.feature_extraction.text import TfidfVectorizer
+from spacy.lang.en import English
+import numpy as np
+import spacy
+from spacy.lang.en.stop_words import STOP_WORDS
+from string import punctuation
 from flask import Flask, render_template, request
 
 
@@ -55,8 +55,8 @@ def hello():
 @app.route('/', methods = ['POST'])
 def display():
 	text = request.form['passage']
-	#summary = getSummary(text)
-	summary = "working"
+	summary = getSummary(text)
+	#summary = "working"
 	return render_template("summary_page.html", summary= summary)
 
 
