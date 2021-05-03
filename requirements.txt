@@ -1,6 +1,6 @@
-string
 spacy
 numpy
+sklearn
 heapq
 spacy.lang.en
 sklearn.feature_extraction.text
