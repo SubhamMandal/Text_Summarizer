@@ -12,7 +12,7 @@ app.static_folder = 'static'
 def getSummary(text):
 	try:
 		try:
-			punctuation = r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
+			punctuation = r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~""" + "\n" + ","
 			stopwords= list(STOP_WORDS)
 		except:
 			return "problem in punctuation"
