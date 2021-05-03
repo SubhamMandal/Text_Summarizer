@@ -1,7 +1,9 @@
 string
 spacy
 numpy
-sklearn
+heapq
+spacy.lang.en
+sklearn.feature_extraction.text
 Click==7.0
 Flask==1.1.1
 gunicorn==19.9.0
