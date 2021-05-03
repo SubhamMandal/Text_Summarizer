@@ -82,6 +82,19 @@ def display():
 		summary = "there has been some error"
 	return render_template("summary_page.html", summary= summary)
 
+@app.route('/file', methods = ['POST'])
+def filedisplay():
+	f = request.files['userfile']
+	path = "./static/{}".format(f.filename)
+	f.save(path)
+	myfile = open(path, "r", encoding="utf8")
+	text = myfile.read()
+	try:
+		summary = getSummary(text)
+	except:
+		summary = "error"
+	return render_template("summary_page.html", summary= summary)
+
 
 if __name__ == '__main__':
 	app.debug = True
