@@ -3,7 +3,6 @@ from spacy.lang.en import English
 import numpy as np
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
-from string import punctuation
 from flask import Flask, render_template, request
 
 
@@ -11,6 +10,7 @@ app = Flask(__name__)
 app.static_folder = 'static'
 
 def getSummary(text):
+	punctuation = r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
 	stopwords= list(STOP_WORDS)
 	import en_core_web_sm
 	nlp = en_core_web_sm.load()
@@ -55,8 +55,10 @@ def hello():
 @app.route('/', methods = ['POST'])
 def display():
 	text = request.form['passage']
-	summary = getSummary(text)
-	summary = "working"
+	try:
+		summary = getSummary(text)
+	except:
+		summary = "there has been some error"
 	return render_template("summary_page.html", summary= summary)
 
 
